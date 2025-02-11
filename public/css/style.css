@@ -1,0 +1,129 @@
+
+body {
+  /*  background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+
+#sidebar {
+    background:rgb(0, 17, 206) !important;
+    backdrop-filter: blur(5px);
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebar .nav-link {
+    background-color: black;
+    padding: 15px 25px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#sidebar .nav-link:hover {
+    background: orange;
+    transform: translateX(5px);
+}
+
+#sidebar .nav-link i {
+    width: 25px;
+    text-align: center;
+}
+
+
+#page-content-wrapper {
+    background: white;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(95, 14, 85, 0.334);
+    backdrop-filter: blur(5px);
+}
+
+
+footer {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(5px);
+}
+
+
+@media (max-width: 768px) {
+    #sidebar {
+        min-height: auto;
+        width: 100%;
+    }
+    
+    #page-content-wrapper {
+        width: 100%;
+    }
+    
+    body {
+        background-attachment: scroll;
+    }
+}
+.card {
+    background:rgb(6, 167, 172);
+    backdrop-filter: blur(5px);
+    border: none;
+    border-radius: 15px;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+}
+
+.form-label {
+    font-weight: 600;
+    color: white;
+}
+
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: rgb(6, 167, 172);
+    box-shadow: 0 0 8px rgba(78, 156, 175, 0.3);
+}
+
+.btn-primary {
+    background: #4E9CAF;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #3d7d8d;
+    transform: translateY(-2px);
+}
+.navbar .navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
