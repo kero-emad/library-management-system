@@ -25,6 +25,11 @@
                     <input type="number" name="price" class="form-control" step="0.01" value="{{ $book->price }}" readonly>
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label">Author Name</label>
+                    <input type="text" name="name" class="form-control" value="{{ $author->name }}" readonly>
+                </div>
+
                 <div class="d-flex justify-content-end">
                 </div>
             </form>

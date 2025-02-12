@@ -42,27 +42,29 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
+        <th>Email</th>
+        <th>Job Description</th>
+        <th>Bio</th>
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
-      @foreach($books as $book)
+      @foreach($authors as $author)
         <tr>
-            <td>{{ $book->id }}</td>
-            <td>{{ $book->name }}</td>
-            <td>{{ $book->description }}</td>
-            <td>{{ $book->price }}</td>
+            <td>{{ $author->id }}</td>
+            <td>{{ $author->name }}</td>
+            <td>{{ $author->email }}</td>
+            <td>{{ $author->jobdescription }}</td>
+            <td>{{ $author->bio }}</td>
             <td>
-               <a href="/books/show/{{  $book->id  }}"><button>Show</button></a>
-               <a href="/books/update/{{  $book->id  }}"><button>Update</button></a>
-               <a href="/books/delete/{{  $book->id  }}"><button>Delete</button></a>
+               <a href="/authors/show/{{  $author->id  }}"><button>Show</button></a>
+               <a href="/authors/update/{{  $author->id  }}"><button>Update</button></a>
+               <a href="/authors/delete/{{  $author->id  }}"><button>Delete</button></a>
             
     </tr>
       @endforeach
       </tbody>
     </table>
-    <button class="btn btn-primary" style="height:70px; width:200px;"><a href="/books/create" style="text-decoration:none; color:white;">New Book</a></button>
+    <button class="btn btn-primary" style="height:70px; width:200px;"><a href="/authors/create" style="text-decoration:none; color:white;">New Author</a></button>
       </div>
 @endsection

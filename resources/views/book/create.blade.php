@@ -24,6 +24,17 @@
                     <input type="number" name="price" class="form-control" step="0.01" required>
                 </div>
 
+
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    <select name="author_id" class="form-select">
+                        <option disabled selected>Choose the author</option>
+                        @foreach($authors as $author)
+                           <option name='author_id' value="{{ $author->id }}">{{ $author->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Save

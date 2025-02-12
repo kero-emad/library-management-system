@@ -25,7 +25,7 @@
                     <a class="nav-link text-white" href=""><i class="fas fa-user-plus"></i>Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href=""> <i class="fas fa-user-tie"></i>ِAuthors</a>
+                    <a class="nav-link text-white" href="{{ route('author.index') }}"> <i class="fas fa-user-tie"></i>ِAuthors</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('book.index') }}"><i class="fas fa-book-open"></i>Books</a>
