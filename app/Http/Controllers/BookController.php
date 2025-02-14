@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\Student;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,7 +15,8 @@ class BookController extends Controller
     {
         $authors=Author::all();
         $students=Student::all();
-        return View('book.create',compact('authors','students'));
+        $categories=Category::all();
+        return View('book.create',compact('authors','students','categories'));
     }
     public function store(Request $request)
     {
@@ -30,7 +32,9 @@ class BookController extends Controller
             'author_id'=>$author_id,
             'Student_id'=>$Student_id
         ];
-        Book::create($data);
+        $book=Book::create($data);
+        $categories_ids=$request->categories_ids;
+        $book->categories()->attach($categories_ids);
         $books=Book::all();
         return view('book.index',compact('books'));
     }

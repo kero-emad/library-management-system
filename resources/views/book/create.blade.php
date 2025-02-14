@@ -39,9 +39,20 @@
                 <div class="mb-3">
                     <label class="form-label">Student</label>
                     <select name="Student_id" class="form-select">
-                        <option disabled selected>Choose the author</option>
+                        <option disabled selected>Choose the student</option>
                         @foreach($students as $student)
                            <option name='Student_id' value="{{ $student->id }}">{{ $student->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Categories</label>
+                    <select name="categories_ids[]" class="form-select" multiple>
+                        <option disabled selected>Choose the categories</option>
+                        @foreach($categories as $category)
+                           <option name='categories_ids[]' value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>

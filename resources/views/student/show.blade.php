@@ -25,6 +25,33 @@
                     <input type="text" name="phone" class="form-control" value="{{ $student->phone }}" readonly>
                 </div>
 
+
+                <div class="mt-4">
+                    <label class="form-label">Books borrowed by {{ $student->name }}</label>
+                    @if($student->books->isEmpty())
+                        <p>No books available for this student</p>
+                    @else
+                        <table class="table table-bordered table-striped text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($student->books as $book)
+                                    <tr>
+                                        <td>{{ $book->name }}</td>
+                                        <td>{{ ($book->description) }}</td>
+                                        <td>{{ $book->price }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+
                 <div class="d-flex justify-content-end">
                 </div>
             </form>

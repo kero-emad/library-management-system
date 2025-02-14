@@ -21,6 +21,32 @@
                 </div>
 
 
+                <div class="mt-4">
+                    <label class="form-label">Books belong to {{ $category->name }}</label>
+                    @if($category->books->isEmpty())
+                        <p>No books available for this category</p>
+                    @else
+                        <table class="table table-bordered table-striped text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($category->books as $book)
+                                    <tr>
+                                        <td>{{ $book->name }}</td>
+                                        <td>{{ ($book->description) }}</td>
+                                        <td>{{ $book->price }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+
                 <div class="d-flex justify-content-end">
                 </div>
             </form>
