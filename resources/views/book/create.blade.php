@@ -35,6 +35,17 @@
                     </select>
                 </div>
 
+
+                <div class="mb-3">
+                    <label class="form-label">Student</label>
+                    <select name="Student_id" class="form-select">
+                        <option disabled selected>Choose the author</option>
+                        @foreach($students as $student)
+                           <option name='Student_id' value="{{ $student->id }}">{{ $student->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save me-2"></i>Save

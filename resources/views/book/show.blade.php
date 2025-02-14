@@ -22,12 +22,17 @@
 
                 <div class="mb-4">
                     <label class="form-label">Price</label>
-                    <input type="number" name="price" class="form-control" step="0.01" value="{{ $book->price }}" readonly>
+                    <input type="number" name="price" class="form-control" value="{{ $book->price }}" readonly>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Author Name</label>
-                    <input type="text" name="name" class="form-control" value="{{ $author->name }}" readonly>
+                    <input type="text" name="Authorname" class="form-control" value="{{ $author->name }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" name="Studentname" class="form-control" value="{{ isset($student) ? $student->name : 'Not assigned to student' }}" readonly>
                 </div>
 
                 <div class="d-flex justify-content-end">

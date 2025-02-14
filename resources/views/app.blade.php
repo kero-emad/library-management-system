@@ -21,15 +21,31 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href=""><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href=""><i class="fas fa-user-plus"></i>Sign Up</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('author.index') }}"> <i class="fas fa-user-tie"></i>ِAuthors</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('book.index') }}"><i class="fas fa-book-open"></i>Books</a>
                 </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('category.index') }}"><i class="fas fa-tags"></i>Categories</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('student.index') }}"> <i class="fas fa-user-graduate"></i>Students</a>
+                </li>
+
+                
             </ul>
         </div>
 
