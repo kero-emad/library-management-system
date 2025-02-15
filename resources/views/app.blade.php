@@ -18,15 +18,23 @@
         <div class="bg-dark text-white col-md-3 p-3" id="sidebar">
             <h4 class="text-center mb-4"><i class="bi bi-book" style="font-size: 1.5rem; margin-right: 10px;"></i>Library Management System</h4>
             <ul class="nav flex-column">
+
+                @guest
                 <li class="nav-item">
-                    <a class="nav-link text-white" href=""><i class="fas fa-sign-in-alt"></i>Login</a>
+                    <a class="nav-link text-white" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href=""><i class="fas fa-user-plus"></i>Sign Up</a>
+                    <a class="nav-link text-white" href="/signup"><i class="fas fa-user-plus"></i>Sign Up</a>
                 </li>
+                @endguest
 
+
+                @auth
+                <p>Welcome {{  Auth::user()->name }}</p>
+                <a class="nav-link text-white" href="/logout"><i class="fas fa-user-plus"></i>Logout</a>
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('author.index') }}"> <i class="fas fa-user-tie"></i>ِAuthors</a>
                 </li>

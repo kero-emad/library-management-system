@@ -5,6 +5,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+
 
 Route::get('/', function () {
     return view('app');
@@ -49,3 +51,16 @@ Route::get('/categories/update/{id}', [CategoryController::class, 'update'])->na
 Route::post('categories/update',[CategoryController::class,'edit'])->name('category.edit');
 Route::get('categories/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 Route::get('categories/show/{id}',[CategoryController::class,'show'])->name('category.show');
+
+
+
+Route::get('/signup',[UserController::class,'register']);
+Route::post('/signup',[UserController::class,'handleRegister'])->name('register');
+
+
+Route::get('/login',[UserController::class,'login']);
+Route::post('/login',[UserController::class,'handleLogin'])->name('login');
+
+
+Route::get('/logout',[UserController::class,'logout']);
+
