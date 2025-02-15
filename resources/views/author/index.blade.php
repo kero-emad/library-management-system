@@ -45,6 +45,7 @@
         <th>Email</th>
         <th>Job Description</th>
         <th>Bio</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
       </thead>
@@ -56,6 +57,7 @@
             <td>{{ $author->email }}</td>
             <td>{{ $author->jobdescription }}</td>
             <td>{{ $author->bio }}</td>
+            <td><img src="{{ asset('uploads/images/' . $author->image) }}" width="50" height="50"></td>
             <td>
                <a href="/authors/show/{{  $author->id  }}"><button>Show</button></a>
                <a href="/authors/update/{{  $author->id  }}"><button>Update</button></a>

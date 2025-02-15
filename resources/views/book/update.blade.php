@@ -7,7 +7,7 @@
         </div>
         
         <div class="card-body">
-            <form action="{{ route('book.edit') }}" method="post">
+            <form action="{{ route('book.edit') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{ $book->id }}">
                 <div class="mb-3">
@@ -22,15 +22,32 @@
 
                 <div class="mb-4">
                     <label class="form-label">Price</label>
-                    <input type="number" name="price" class="form-control" step="0.01" value="{{ $book->price }}" required>
+                    <input type="number" name="price" class="form-control" value="{{ $book->price }}" required>
                 </div>
+
+                <div class="mb-4">
+                    <label class="form-label">Image</label>
+                    <input type="file" name="image" class="form-control" accept=".jpg, .png, .jpeg">
+                </div>
+
 
                 <div class="mb-3">
                     <label class="form-label">Author</label>
                     <select name="author_id" class="form-select">
-                        <option disabled selected>Choose the author</option>
+                        <option selected name="author_id" value="{{ $book->authors->id }}">{{ $book->authors->name }}</option>
                         @foreach($authors as $author)
                            <option name='author_id' value="{{ $author->id }}">{{ $author->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Student</label>
+                    <select name="Student_id" class="form-select">
+                        <option name="Student_id" selected value="{{ $book->students->id }}">{{ $book->students->name }}</option>
+                        @foreach($students as $student)
+                           <option name='Student_id' value="{{ $student->id }}">{{ $student->name }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -30,6 +30,11 @@
                     <textarea name="bio" class="form-control" rows="4" readonly>{{ $author->bio  }}</textarea>
                 </div>
 
+                <div class="mb-4">
+                    <label class="form-label">Image</label>
+                    <img src="{{ asset('uploads/images/' . $author->image) }}" alt="Not image found" width="50" height="50">
+                </div>
+
 
 
                 <div class="mt-4">

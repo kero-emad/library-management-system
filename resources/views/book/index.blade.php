@@ -44,6 +44,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Image</th>
         <th>Actions</th>
       </tr>
       </thead>
@@ -54,6 +55,7 @@
             <td>{{ $book->name }}</td>
             <td>{{ $book->description }}</td>
             <td>{{ $book->price }}</td>
+            <td><img src="{{ asset('uploads/images/' . $book->image) }}" width="50" height="50"></td>
             <td>
                <a href="/books/show/{{  $book->id  }}"><button>Show</button></a>
                <a href="/books/update/{{  $book->id  }}"><button>Update</button></a>

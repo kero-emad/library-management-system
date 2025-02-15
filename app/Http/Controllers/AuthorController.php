@@ -31,16 +31,24 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('image')){
+            $image=$request->file('image');
+            $extension=$image->extension();
+            $filename="library".time().'.'.$extension;
+            $image->move(public_path('uploads/images'),$filename);
+        }
         $name=$request->name;
         $email=$request->email;
         $jobdescription=$request->jobdescription;
         $bio=$request->bio;
+        $image=$filename;
 
         $data=[
             'name'=>$name,
             'email'=>$email,
             'jobdescription'=>$jobdescription,
-            'bio'=>$bio
+            'bio'=>$bio,
+            'image'=>$image
         ];
         Author::create($data);
         $authors=Author::all();
@@ -63,17 +71,33 @@ class AuthorController extends Controller
      */
     public function edit(Request $request)
     {
+
         $id=$request->id;
         $author=Author::find($id);
+
+        if ($request->hasFile('image')){
+            $image=$request->file('image');
+            $extension=$image->extension();
+            $filename="library".time().'.'.$extension;
+            $image->move(public_path('uploads/images'),$filename);
+        }
+        else
+        {
+            $filename=$author->image;
+        }
+
+        
         $name=$request->name;
         $email=$request->email;
         $jobdescription=$request->jobdescription;
         $bio=$request->bio;
+        $image=$filename;
         $data=[
             'name'=>$name,
             'email'=>$email,
             'jobdescription'=>$jobdescription,
-            'bio'=>$bio
+            'bio'=>$bio,
+            'image'=>$image
         ];
         $author->update($data);
         $authors=Author::all();

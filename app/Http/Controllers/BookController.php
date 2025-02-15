@@ -20,17 +20,30 @@ class BookController extends Controller
     }
     public function store(Request $request)
     {
+
+        if ($request->hasFile('image')){
+            $image=$request->file('image');
+            $extension=$image->extension();
+            $filename="library".time().'.'.$extension;
+            $image->move(public_path('uploads/images'),$filename);
+        }
+        
+
         $name=$request->name;
         $description=$request->description;
         $price=$request->price;
         $author_id=$request->author_id;
         $Student_id=$request->Student_id;
+        $image=$filename;
+
+        
         $data=[
             'name'=>$name,
             'description'=>$description,
             'price'=>$price,
             'author_id'=>$author_id,
-            'Student_id'=>$Student_id
+            'Student_id'=>$Student_id,
+            'image'=>$image
         ];
         $book=Book::create($data);
         $categories_ids=$request->categories_ids;
@@ -47,21 +60,38 @@ class BookController extends Controller
     {
         $book=Book::find($id);
         $authors=Author::all();
-        return view ('book.update',compact('book','authors'));
+        $students=Student::all();
+        return view ('book.update',compact('book','authors','students'));
     }
     public function edit (Request $request)
     {
         $id=$request->id;
         $book=Book::find($id);
+
+        if ($request->hasFile('image')){
+            $image=$request->file('image');
+            $extension=$image->extension();
+            $filename="library".time().'.'.$extension;
+            $image->move(public_path('uploads/images'),$filename);
+        }
+        else
+        {
+            $filename=$book->image;
+        }
+        
         $name=$request->name;
         $description=$request->description;
         $price=$request->price;
         $author_id=$request->author_id;
+        $Student_id=$request->Student_id;
+        $image=$filename;
         $data=[
             'name'=>$name,
             'description'=>$description,
             'price'=>$price,
-            'author_id'=>$author_id
+            'author_id'=>$author_id,
+            'Student_id'=>$Student_id,
+            'image'=>$image
         ];
         $book->update($data);
         $books=Book::all();

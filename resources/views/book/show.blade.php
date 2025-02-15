@@ -25,6 +25,12 @@
                     <input type="number" name="price" class="form-control" value="{{ $book->price }}" readonly>
                 </div>
 
+                <div class="mb-4">
+                    <label class="form-label">Image</label>
+                    <img src="{{ asset('uploads/images/' . $book->image) }}" alt="Not image found" width="50" height="50">
+                </div>
+
+
                 <div class="mb-3">
                     <label class="form-label">Author Name</label>
                     <input type="text" name="Authorname" class="form-control" value="{{ $author->name }}" readonly>

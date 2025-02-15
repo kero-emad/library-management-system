@@ -7,7 +7,7 @@
         </div>
         
         <div class="card-body">
-            <form action="{{ route('author.store') }}" method="post">
+            <form action="{{ route('author.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Name</label>
@@ -27,6 +27,12 @@
                 <div class="mb-3">
                     <label class="form-label">Bio</label>
                     <textarea name="bio" class="form-control" rows="4" required></textarea>
+                </div>
+
+
+                <div class="mb-4">
+                    <label class="form-label">Image</label>
+                    <input type="file" name="image" class="form-control" accept=".jpg, .png, .jpeg" required>
                 </div>
 
 
